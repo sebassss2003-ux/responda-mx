@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RespondaMX — Make the Decision</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111a22;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      height: 70px;
+      padding: 0 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #17212b;
+      border-bottom: 1px solid #2d3a45;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: #c65d2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .status {
+      color: #9eabb4;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .page {
+      max-width: 1050px;
+      margin: auto;
+      padding: 55px 24px;
+    }
+
+    .eyebrow {
+      color: #d8784d;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 42px;
+      letter-spacing: -1.5px;
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      color: #9eabb4;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-bottom: 35px;
+    }
+
+    .scenario {
+      padding: 25px;
+      background: #1a2731;
+      border: 1px solid #34434f;
+      border-radius: 15px;
+      margin-bottom: 22px;
+    }
+
+    .scenario-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 9px;
+    }
+
+    .scenario-text {
+      color: #aeb9c1;
+      line-height: 1.55;
+    }
+
+    .options {
+      display: grid;
+      gap: 13px;
+      margin-top: 25px;
+    }
+
+    .option {
+      width: 100%;
+      padding: 19px 20px;
+      border: 1px solid #3b4a55;
+      border-radius: 11px;
+      background: #17212b;
+      color: white;
+      text-align: left;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .option:hover {
+      border-color: #d8784d;
+      transform: translateY(-1px);
+    }
+
+    .option strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .option span {
+      color: #98a6af;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 25px;
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid #3b4a55;
+      background: #17212b;
+    }
+
+    .feedback.active {
+      display: block;
+    }
+
+    .feedback.pass {
+      border-color: #557a68;
+      background: #182720;
+    }
+
+    .feedback.fail {
+      border-color: #765345;
+      background: #281e1a;
+    }
+
+    .feedback-title {
+      font-size: 21px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .feedback-text {
+      color: #b7c1c7;
+      line-height: 1.55;
+      margin-bottom: 17px;
+    }
+
+    .correction {
+      padding: 15px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 9px;
+      margin-bottom: 18px;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .retry {
+      border: none;
+      background: white;
+      color: #17212b;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .exit {
+      margin-top: 25px;
+      background: transparent;
+      border: 1px solid #3b4a55;
+      color: #9eabb4;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .exit:hover {
+      color: white;
+      border-color: #687883;
+    }
+
+    .disclaimer {
+      margin-top: 25px;
+      padding: 14px 17px;
+      border-radius: 9px;
+      background: #211b18;
+      border: 1px solid #49352c;
+      color: #c6aaa0;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .attempts {
+      margin-top: 18px;
+      font-size: 12px;
+      color: #7f8d96;
+    }
+
+    @media (max-width: 650px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      .page {
+        padding-top: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <div class="brand">
+      <div class="brand-mark">R</div>
+      RespondaMX
+    </div>
+
+    <div class="status">
+      Decision rehearsal
+    </div>
+
+  </header>
+
+  <main class="page">
+
+    <div class="eyebrow">
+      Scenario 01 · Decision point
+    </div>
+
+    <h1>
+      The main exit is blocked.
+    </h1>
+
+    <p class="intro">
+      The earthquake has changed the expected route. You are responsible
+      for choosing what to do next. Choose the action you would take.
+    </p>
+
+    <section class="scenario">
+
+      <div class="scenario-title">
+        What do you do?
+      </div>
+
+      <div class="scenario-text">
+        You are on the second floor of Campus A. The main exit is blocked.
+        An alternate emergency route is available through the marked stairs.
+      </div>
+
+      <div class="options">
+
+        <button class="option" onclick="evaluateDecision(1)">
+          <strong>Use the marked emergency stairs</strong>
+          <span>
+            Move through the predefined alternate evacuation route.
+          </span>
+        </button>
+
+        <button class="option" onclick="evaluateDecision(2)">
+          <strong>Return toward the blocked main exit</strong>
+          <span>
+            Continue toward the route that is no longer available.
+          </span>
+        </button>
+
+        <button class="option" onclick="evaluateDecision(3)">
+          <strong>Stay where you are and wait</strong>
+          <span>
+            Remain in the corridor without following the alternate route.
+          </span>
+        </button>
+
+      </div>
+
+    </section>
+
+    <section id="feedback" class="feedback">
+
+      <div id="feedbackTitle" class="feedback-title"></div>
+
+      <div id="feedbackText" class="feedback-text"></div>
+
+      <div id="correction" class="correction"></div>
+
+      <button
+        id="retryButton"
+        class="retry"
+        onclick="retryScenario()"
+      >
+        Try again
+      </button>
+
+    </section>
+
+    <div class="attempts">
+      Attempts: <span id="attemptCount">0</span>
+    </div>
+
+    <button class="exit" onclick="exitSimulation()">
+      Exit simulation
+    </button>
+
+    <div class="disclaimer">
+
+      <strong>PERFORMANCE IN SIMULATION.</strong>
+      Results describe performance inside this simulated scenario only.
+      They do not certify readiness, compliance, safety, survival or
+      real-world risk reduction.
+
+    </div>
+
+  </main>
+
+  <script>
+
+    let attempts = 0;
+
+    function evaluateDecision(choice) {
+
+      attempts++;
+
+      document.getElementById("attemptCount").textContent = attempts;
+
+      const feedback = document.getElementById("feedback");
+      const title = document.getElementById("feedbackTitle");
+      const text = document.getElementById("feedbackText");
+      const correction = document.getElementById("correction");
+
+      feedback.classList.remove("pass", "fail");
+
+      if (choice === 1) {
+
+        feedback.classList.add("pass");
+
+        title.textContent = "PASS — Safe alternate route selected.";
+
+        text.textContent =
+          "You selected the predefined alternate route after the primary exit became unavailable.";
+
+        correction.textContent =
+          "Decision measured: selecting the safe alternate route when the primary route is blocked.";
+
+      } else {
+
+        feedback.classList.add("fail");
+
+        title.textContent = "FAIL — The selected action does not follow the scenario rule.";
+
+        text.textContent =
+          "The main exit is unavailable. Returning to it does not resolve the blocked-route condition.";
+
+        correction.innerHTML =
+          "<strong>Corrective action:</strong> identify the marked emergency stairs and use the predefined alternate route.";
+
+      }
+
+      feedback.classList.add("active");
+
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+      });
+    }
+
+    function retryScenario() {
+
+      document.getElementById("feedback").classList.remove("active");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function exitSimulation() {
+
+      alert(
+        "Simulation ended. No real-world readiness or certification was generated."
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
