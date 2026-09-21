@@ -15,272 +15,181 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #111a22;
-      color: #ffffff;
+      background: #101820;
+      color: white;
       min-height: 100vh;
     }
 
     .topbar {
       height: 70px;
-      padding: 0 6%;
+      border-bottom: 1px solid #34434e;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid #2d3a45;
-      background: #17212b;
+      padding: 0 7%;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
       font-size: 20px;
+      font-weight: 800;
     }
 
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      background: #c65d2e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .simulation-status {
-      font-size: 12px;
-      color: #9eabb4;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .status {
+      color: #aeb9c1;
+      font-size: 13px;
     }
 
     .page {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: auto;
-      padding: 35px 24px 60px;
+      padding: 45px 24px;
     }
 
     .scenario-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 25px;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
     }
 
     .eyebrow {
-      color: #d8784d;
+      color: #c65d2e;
       font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
+      font-weight: 800;
       letter-spacing: 1.5px;
+      text-transform: uppercase;
       margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 34px;
-      letter-spacing: -1px;
-      margin-bottom: 8px;
+      font-size: 38px;
+      margin-bottom: 10px;
     }
 
-    .description {
-      color: #9eabb4;
-      line-height: 1.5;
-      max-width: 650px;
+    .location {
+      color: #aeb9c1;
+      font-size: 15px;
     }
 
-    .location-card {
-      min-width: 230px;
-      padding: 17px;
-      border: 1px solid #34434f;
-      border-radius: 12px;
-      background: #1a2731;
-    }
-
-    .location-title {
-      font-size: 11px;
-      color: #8f9ca5;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-
-    .location-main {
+    .live {
+      padding: 8px 12px;
+      border-radius: 20px;
+      background: #3a2520;
+      color: #e6a98d;
+      font-size: 12px;
       font-weight: 700;
-      margin-bottom: 5px;
-    }
-
-    .location-detail {
-      color: #9eabb4;
-      font-size: 13px;
     }
 
     .simulation {
-      position: relative;
-      height: 500px;
-      background: #1b2832;
-      border: 1px solid #34434f;
+      background: #1a252e;
+      border: 1px solid #34434e;
       border-radius: 20px;
-      overflow: hidden;
+      padding: 25px;
     }
 
-    .simulation-label {
-      position: absolute;
-      top: 18px;
-      left: 18px;
-      z-index: 5;
-      background: rgba(17, 26, 34, 0.9);
-      padding: 9px 13px;
-      border-radius: 8px;
-      font-size: 11px;
-      color: #d5dde2;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .map {
+      height: 390px;
+      position: relative;
+      background: #202d38;
+      border: 1px solid #42515d;
+      border-radius: 15px;
+      overflow: hidden;
     }
 
     .floor {
       position: absolute;
       left: 8%;
       right: 8%;
-      top: 25%;
-      bottom: 12%;
-      background: #cfd4d7;
+      top: 22%;
+      bottom: 22%;
+      background: #d8dde1;
       border-radius: 10px;
     }
 
     .corridor {
       position: absolute;
-      left: 12%;
-      right: 12%;
-      top: 43%;
-      height: 100px;
-      background: #9ea7ac;
+      left: 5%;
+      right: 5%;
+      top: 40%;
+      height: 70px;
+      background: #b8c0c5;
       border-radius: 8px;
-    }
-
-    .wall-left,
-    .wall-right {
-      position: absolute;
-      top: 25%;
-      bottom: 12%;
-      width: 12%;
-      background: #737e84;
-    }
-
-    .wall-left {
-      left: 8%;
-    }
-
-    .wall-right {
-      right: 8%;
     }
 
     .main-exit {
       position: absolute;
-      right: 10%;
-      top: 38%;
-      width: 75px;
-      height: 120px;
-      background: #39464e;
-      border: 3px solid #65727a;
+      right: 4%;
+      top: 33%;
+      width: 70px;
+      height: 100px;
+      background: #7f898f;
       border-radius: 6px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding-bottom: 9px;
-      color: #ffffff;
-      font-size: 10px;
-      text-transform: uppercase;
     }
 
     .blocked {
       position: absolute;
-      right: 8%;
-      top: 33%;
-      width: 105px;
-      height: 12px;
+      right: 2%;
+      top: 27%;
+      width: 110px;
+      height: 10px;
       background: #c65d2e;
       transform: rotate(-25deg);
-      border-radius: 10px;
-      z-index: 4;
-    }
-
-    .blocked-text {
-      position: absolute;
-      right: 8%;
-      top: 60%;
-      color: #c65d2e;
-      font-weight: 800;
-      font-size: 12px;
-      text-transform: uppercase;
+      border-radius: 5px;
     }
 
     .stairs {
       position: absolute;
-      left: 13%;
-      top: 34%;
-      width: 100px;
-      height: 145px;
-      border: 3px dashed #2d536a;
+      left: 8%;
+      top: 30%;
+      width: 85px;
+      height: 120px;
+      border: 3px dashed #17212b;
       border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #214b61;
-      font-weight: 800;
-      font-size: 12px;
-      text-align: center;
+      background: #aeb6bb;
     }
 
-    .stairs::after {
-      content: "↓";
+    .stairs-label {
       position: absolute;
-      bottom: 8px;
-      font-size: 25px;
+      left: 9%;
+      top: 52%;
+      color: #17212b;
+      font-size: 12px;
+      font-weight: 800;
     }
 
     .person {
       position: absolute;
       left: 45%;
-      top: 45%;
-      width: 24px;
-      height: 24px;
+      top: 50%;
+      width: 22px;
+      height: 22px;
+      background: #c65d2e;
       border-radius: 50%;
-      background: #c65d2e;
-      box-shadow: 0 0 0 9px rgba(198, 93, 46, 0.18);
-      z-index: 5;
+      box-shadow: 0 0 0 9px rgba(198, 93, 46, 0.2);
     }
 
-    .route-line {
+    .you-label {
       position: absolute;
-      left: 30%;
-      top: 47%;
-      width: 17%;
-      height: 3px;
-      border-top: 3px dashed #2d536a;
-    }
-
-    .earthquake {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      background: #c65d2e;
-      color: white;
-      padding: 9px 13px;
-      border-radius: 8px;
-      font-size: 11px;
+      left: 43%;
+      top: 58%;
+      color: #17212b;
+      font-size: 12px;
       font-weight: 800;
-      text-transform: uppercase;
-      z-index: 6;
     }
 
-    .bottom-panel {
+    .alert {
       margin-top: 20px;
-      padding: 20px;
-      border: 1px solid #34434f;
-      background: #17212b;
-      border-radius: 14px;
+      padding: 18px;
+      background: #3a2520;
+      border: 1px solid #6a4030;
+      border-radius: 12px;
+      color: #f0c1ad;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .action-area {
+      margin-top: 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -288,62 +197,50 @@
     }
 
     .instruction {
-      font-weight: 700;
-    }
-
-    .instruction span {
-      display: block;
-      color: #9eabb4;
-      font-size: 13px;
-      font-weight: normal;
-      margin-top: 5px;
+      color: #aeb9c1;
+      font-size: 14px;
+      line-height: 1.5;
+      max-width: 600px;
     }
 
     .continue-button {
-      background: #ffffff;
+      display: inline-block;
+      background: white;
       color: #17212b;
-      border: none;
-      border-radius: 9px;
-      padding: 13px 20px;
-      font-weight: 700;
-      cursor: pointer;
+      text-decoration: none;
+      padding: 15px 22px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 14px;
+      white-space: nowrap;
     }
 
     .continue-button:hover {
-      background: #e7ecef;
+      background: #e5e9ec;
     }
 
     .disclaimer {
-      margin-top: 18px;
-      padding: 14px 17px;
-      border-radius: 9px;
-      background: #211b18;
-      border: 1px solid #49352c;
-      color: #c6aaa0;
+      margin-top: 30px;
+      color: #7f8d97;
       font-size: 11px;
       line-height: 1.5;
+      text-align: center;
     }
 
-    @media (max-width: 750px) {
-      .scenario-header {
+    @media (max-width: 700px) {
+      .scenario-header,
+      .action-area {
         flex-direction: column;
+        align-items: flex-start;
       }
 
-      .location-card {
-        width: 100%;
-      }
-
-      .simulation {
-        height: 400px;
-      }
-
-      .bottom-panel {
-        flex-direction: column;
-        align-items: stretch;
+      .map {
+        height: 330px;
       }
 
       .continue-button {
         width: 100%;
+        text-align: center;
       }
     }
   </style>
@@ -354,112 +251,105 @@
   <header class="topbar">
 
     <div class="brand">
-      <div class="brand-mark">R</div>
       RespondaMX
     </div>
 
-    <div class="simulation-status">
-      Live simulation · Prototype
+    <div class="status">
+      Emergency rehearsal · Prototype
     </div>
 
   </header>
 
+
   <main class="page">
 
-    <section class="scenario-header">
+    <div class="scenario-header">
 
       <div>
-        <div class="eyebrow">Scenario 01 · Earthquake rehearsal</div>
 
-        <h1>The main exit is blocked.</h1>
-
-        <p class="description">
-          An earthquake has changed the expected route. Observe the environment
-          and prepare to make a decision based on the available alternatives.
-        </p>
-      </div>
-
-      <div class="location-card">
-
-        <div class="location-title">
-          Simulated location
+        <div class="eyebrow">
+          Simulation · Scenario 01
         </div>
 
-        <div class="location-main">
-          Mexico City · Campus A
-        </div>
+        <h1>
+          The expected route changed.
+        </h1>
 
-        <div class="location-detail">
-          Floor 2 · North corridor
+        <div class="location">
+          Campus A · Floor 2 · North corridor
         </div>
 
       </div>
 
-    </section>
+      <div class="live">
+        SIMULATION ACTIVE
+      </div>
+
+    </div>
+
 
     <section class="simulation">
 
-      <div class="simulation-label">
-        3D / simulation layer
+      <div class="map">
+
+        <div class="floor">
+
+          <div class="corridor"></div>
+
+          <div class="main-exit"></div>
+
+          <div class="blocked"></div>
+
+          <div class="stairs"></div>
+
+          <div class="stairs-label">
+            EMERGENCY STAIRS
+          </div>
+
+          <div class="person"></div>
+
+          <div class="you-label">
+            YOU
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="earthquake">
-        Earthquake active
+
+      <div class="alert">
+
+        <strong>Situation changed:</strong>
+
+        The main exit is unavailable.
+        You need to decide what to do next.
+
       </div>
 
-      <div class="floor">
 
-        <div class="wall-left"></div>
-        <div class="wall-right"></div>
+      <div class="action-area">
 
-        <div class="corridor"></div>
+        <p class="instruction">
+          This is a rehearsal. There is no real emergency.
+          Choose your next action on the following screen.
+        </p>
 
-        <div class="stairs">
-          EMERGENCY<br>
-          STAIRS
-        </div>
-
-        <div class="route-line"></div>
-
-        <div class="main-exit">
-          Exit
-        </div>
-
-        <div class="blocked"></div>
-
-        <div class="blocked-text">
-          Main exit blocked
-        </div>
-
-        <div class="person"></div>
+        <a
+          href="https://sebassss2003-ux.github.io/responda-mx/decision.html"
+          class="continue-button">
+          Continue to decision →
+        </a>
 
       </div>
 
     </section>
 
-    <section class="bottom-panel">
-
-      <div class="instruction">
-
-        Observe before deciding.
-
-        <span>
-          The next step will ask you what you would do in this situation.
-        </span>
-
-      </div>
-
-      <button class="continue-button">
-        Continue →
-      </button>
-
-    </section>
 
     <div class="disclaimer">
 
-      <strong>PERFORMANCE IN SIMULATION.</strong>
-      This prototype does not certify readiness, compliance, safety,
-      survival or real-world risk reduction.
+      Prototype notice: this is a simulated environment.
+      Performance in this simulation does not certify real-world
+      readiness, compliance, safety or risk reduction.
 
     </div>
 
