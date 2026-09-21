@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RespondaMX — Simulation</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111a22;
+      color: #ffffff;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      height: 70px;
+      padding: 0 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #2d3a45;
+      background: #17212b;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: #c65d2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .simulation-status {
+      font-size: 12px;
+      color: #9eabb4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: auto;
+      padding: 35px 24px 60px;
+    }
+
+    .scenario-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    .eyebrow {
+      color: #d8784d;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 34px;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .description {
+      color: #9eabb4;
+      line-height: 1.5;
+      max-width: 650px;
+    }
+
+    .location-card {
+      min-width: 230px;
+      padding: 17px;
+      border: 1px solid #34434f;
+      border-radius: 12px;
+      background: #1a2731;
+    }
+
+    .location-title {
+      font-size: 11px;
+      color: #8f9ca5;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .location-main {
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .location-detail {
+      color: #9eabb4;
+      font-size: 13px;
+    }
+
+    .simulation {
+      position: relative;
+      height: 500px;
+      background: #1b2832;
+      border: 1px solid #34434f;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .simulation-label {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 5;
+      background: rgba(17, 26, 34, 0.9);
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-size: 11px;
+      color: #d5dde2;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .floor {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 25%;
+      bottom: 12%;
+      background: #cfd4d7;
+      border-radius: 10px;
+    }
+
+    .corridor {
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      top: 43%;
+      height: 100px;
+      background: #9ea7ac;
+      border-radius: 8px;
+    }
+
+    .wall-left,
+    .wall-right {
+      position: absolute;
+      top: 25%;
+      bottom: 12%;
+      width: 12%;
+      background: #737e84;
+    }
+
+    .wall-left {
+      left: 8%;
+    }
+
+    .wall-right {
+      right: 8%;
+    }
+
+    .main-exit {
+      position: absolute;
+      right: 10%;
+      top: 38%;
+      width: 75px;
+      height: 120px;
+      background: #39464e;
+      border: 3px solid #65727a;
+      border-radius: 6px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 9px;
+      color: #ffffff;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .blocked {
+      position: absolute;
+      right: 8%;
+      top: 33%;
+      width: 105px;
+      height: 12px;
+      background: #c65d2e;
+      transform: rotate(-25deg);
+      border-radius: 10px;
+      z-index: 4;
+    }
+
+    .blocked-text {
+      position: absolute;
+      right: 8%;
+      top: 60%;
+      color: #c65d2e;
+      font-weight: 800;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .stairs {
+      position: absolute;
+      left: 13%;
+      top: 34%;
+      width: 100px;
+      height: 145px;
+      border: 3px dashed #2d536a;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #214b61;
+      font-weight: 800;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .stairs::after {
+      content: "↓";
+      position: absolute;
+      bottom: 8px;
+      font-size: 25px;
+    }
+
+    .person {
+      position: absolute;
+      left: 45%;
+      top: 45%;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #c65d2e;
+      box-shadow: 0 0 0 9px rgba(198, 93, 46, 0.18);
+      z-index: 5;
+    }
+
+    .route-line {
+      position: absolute;
+      left: 30%;
+      top: 47%;
+      width: 17%;
+      height: 3px;
+      border-top: 3px dashed #2d536a;
+    }
+
+    .earthquake {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #c65d2e;
+      color: white;
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      z-index: 6;
+    }
+
+    .bottom-panel {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #34434f;
+      background: #17212b;
+      border-radius: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .instruction {
+      font-weight: 700;
+    }
+
+    .instruction span {
+      display: block;
+      color: #9eabb4;
+      font-size: 13px;
+      font-weight: normal;
+      margin-top: 5px;
+    }
+
+    .continue-button {
+      background: #ffffff;
+      color: #17212b;
+      border: none;
+      border-radius: 9px;
+      padding: 13px 20px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .continue-button:hover {
+      background: #e7ecef;
+    }
+
+    .disclaimer {
+      margin-top: 18px;
+      padding: 14px 17px;
+      border-radius: 9px;
+      background: #211b18;
+      border: 1px solid #49352c;
+      color: #c6aaa0;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 750px) {
+      .scenario-header {
+        flex-direction: column;
+      }
+
+      .location-card {
+        width: 100%;
+      }
+
+      .simulation {
+        height: 400px;
+      }
+
+      .bottom-panel {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .continue-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <div class="brand">
+      <div class="brand-mark">R</div>
+      RespondaMX
+    </div>
+
+    <div class="simulation-status">
+      Live simulation · Prototype
+    </div>
+
+  </header>
+
+  <main class="page">
+
+    <section class="scenario-header">
+
+      <div>
+        <div class="eyebrow">Scenario 01 · Earthquake rehearsal</div>
+
+        <h1>The main exit is blocked.</h1>
+
+        <p class="description">
+          An earthquake has changed the expected route. Observe the environment
+          and prepare to make a decision based on the available alternatives.
+        </p>
+      </div>
+
+      <div class="location-card">
+
+        <div class="location-title">
+          Simulated location
+        </div>
+
+        <div class="location-main">
+          Mexico City · Campus A
+        </div>
+
+        <div class="location-detail">
+          Floor 2 · North corridor
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="simulation">
+
+      <div class="simulation-label">
+        3D / simulation layer
+      </div>
+
+      <div class="earthquake">
+        Earthquake active
+      </div>
+
+      <div class="floor">
+
+        <div class="wall-left"></div>
+        <div class="wall-right"></div>
+
+        <div class="corridor"></div>
+
+        <div class="stairs">
+          EMERGENCY<br>
+          STAIRS
+        </div>
+
+        <div class="route-line"></div>
+
+        <div class="main-exit">
+          Exit
+        </div>
+
+        <div class="blocked"></div>
+
+        <div class="blocked-text">
+          Main exit blocked
+        </div>
+
+        <div class="person"></div>
+
+      </div>
+
+    </section>
+
+    <section class="bottom-panel">
+
+      <div class="instruction">
+
+        Observe before deciding.
+
+        <span>
+          The next step will ask you what you would do in this situation.
+        </span>
+
+      </div>
+
+      <button class="continue-button">
+        Continue →
+      </button>
+
+    </section>
+
+    <div class="disclaimer">
+
+      <strong>PERFORMANCE IN SIMULATION.</strong>
+      This prototype does not certify readiness, compliance, safety,
+      survival or real-world risk reduction.
+
+    </div>
+
+  </main>
+
+</body>
+</html>
