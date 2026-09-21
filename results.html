@@ -21,220 +21,176 @@
     }
 
     .topbar {
-      height: 70px;
-      background: #17212b;
-      color: white;
+      height: 72px;
+      background: white;
+      border-bottom: 1px solid #e3e7eb;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 6%;
+      padding: 0 7%;
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-size: 21px;
       font-weight: 800;
-      font-size: 20px;
-    }
-
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      background: #c65d2e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .status {
-      color: #aeb9c1;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      font-size: 13px;
+      color: #687580;
     }
 
     .page {
-      max-width: 950px;
+      max-width: 850px;
       margin: auto;
-      padding: 60px 24px;
+      padding: 65px 24px;
     }
 
     .eyebrow {
       color: #c65d2e;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 15px;
     }
 
     h1 {
-      font-size: 46px;
-      letter-spacing: -2px;
-      margin-bottom: 15px;
+      font-size: 48px;
+      margin-bottom: 18px;
     }
 
     .intro {
       color: #687580;
+      font-size: 17px;
       line-height: 1.6;
-      max-width: 700px;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
     .result-card {
-      background: white;
-      border: 1px solid #e0e5e9;
-      border-radius: 17px;
-      overflow: hidden;
-    }
-
-    .result-header {
       background: #17212b;
       color: white;
-      padding: 28px;
+      border-radius: 20px;
+      padding: 32px;
     }
 
-    .result-status {
-      color: #7fc5a3;
-      font-weight: 800;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .result-header h2 {
-      font-size: 25px;
-      margin-bottom: 8px;
-    }
-
-    .result-header p {
+    .scenario {
       color: #aeb9c1;
-      line-height: 1.5;
-      font-size: 14px;
+      font-size: 13px;
+      margin-bottom: 25px;
     }
 
-    .body {
-      padding: 28px;
+    .result {
+      font-size: 38px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .result-note {
+      color: #d2d9de;
+      line-height: 1.6;
+      font-size: 14px;
     }
 
     .metrics {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin-bottom: 28px;
+      margin-top: 20px;
     }
 
     .metric {
-      padding: 19px;
-      border: 1px solid #e1e6e9;
-      border-radius: 11px;
+      background: white;
+      border: 1px solid #e3e7eb;
+      border-radius: 14px;
+      padding: 20px;
     }
 
-    .metric-label {
-      color: #7a8790;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 9px;
+    .metric small {
+      display: block;
+      color: #687580;
+      margin-bottom: 8px;
     }
 
-    .metric-value {
-      font-size: 20px;
-      font-weight: 800;
+    .metric strong {
+      font-size: 22px;
     }
 
     .correction {
-      padding: 19px;
-      background: #f5f7f8;
-      border-radius: 11px;
-      margin-bottom: 22px;
+      margin-top: 25px;
+      padding: 22px;
+      background: #fff7f3;
+      border: 1px solid #f0d6c8;
+      border-radius: 14px;
     }
 
-    .correction h3 {
-      font-size: 15px;
+    .correction strong {
+      display: block;
+      color: #7b4934;
       margin-bottom: 8px;
     }
 
     .correction p {
       color: #687580;
-      font-size: 14px;
       line-height: 1.55;
-    }
-
-    .ownership {
-      padding: 19px;
-      border-left: 4px solid #c65d2e;
-      background: #fff7f3;
-      margin-bottom: 25px;
-    }
-
-    .ownership h3 {
       font-size: 14px;
-      margin-bottom: 7px;
     }
 
-    .ownership p {
-      color: #744b39;
+    .warning {
+      margin-top: 20px;
+      padding: 18px;
+      background: #ffffff;
+      border: 1px solid #dfe4e8;
+      border-radius: 12px;
+      color: #596773;
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .actions {
+      margin-top: 25px;
       display: flex;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .button {
-      padding: 13px 18px;
-      border-radius: 9px;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-    }
-
-    .primary {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 10px;
       background: #17212b;
       color: white;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
     }
 
-    .secondary {
+    .button.secondary {
       background: white;
       color: #17212b;
-      border: 1px solid #d9dfe3;
+      border: 1px solid #dfe4e8;
     }
 
     .disclaimer {
-      margin-top: 24px;
-      padding: 16px;
-      border-radius: 9px;
-      background: #fff7f3;
-      border: 1px solid #efd5c6;
-      color: #744b39;
+      margin-top: 35px;
+      color: #7b858c;
       font-size: 11px;
-      line-height: 1.55;
+      line-height: 1.5;
+      text-align: center;
     }
 
-    @media (max-width: 700px) {
-
+    @media (max-width: 650px) {
       h1 {
-        font-size: 35px;
+        font-size: 38px;
       }
 
       .metrics {
         grid-template-columns: 1fr;
       }
 
-      .actions {
-        flex-direction: column;
+      .status {
+        display: none;
       }
-
-      .button {
-        width: 100%;
-      }
-
     }
   </style>
 </head>
@@ -244,161 +200,121 @@
   <header class="topbar">
 
     <div class="brand">
-      <div class="brand-mark">R</div>
       RespondaMX
     </div>
 
     <div class="status">
-      Session close
+      Session results · Scenario 01
     </div>
 
   </header>
 
+
   <main class="page">
 
     <div class="eyebrow">
-      Rehearsal complete
+      Step 4 · Review
     </div>
 
     <h1>
-      Your session is complete.
+      Session results
     </h1>
 
     <p class="intro">
-      The purpose of this rehearsal was not to produce a readiness score.
-      It was to practice one decision, identify a gap and make the next
-      attempt better.
+      Your rehearsal is complete. Review what happened and what changed
+      during the decision.
     </p>
+
 
     <section class="result-card">
 
-      <div class="result-header">
-
-        <div class="result-status">
-          Performance in simulation
-        </div>
-
-        <h2>
-          Alternate route selected
-        </h2>
-
-        <p>
-          The predefined safe alternative was selected after the primary
-          exit became unavailable.
-        </p>
-
+      <div class="scenario">
+        Scenario 01 · Campus A · Floor 2
       </div>
 
-      <div class="body">
+      <div class="result">
+        PASS — Simulation performance
+      </div>
 
-        <div class="metrics">
+      <p class="result-note">
+        You recognized that the primary route was unavailable and switched
+        to the available emergency route.
+      </p>
 
-          <div class="metric">
-            <div class="metric-label">
-              Scenario
-            </div>
+    </section>
 
-            <div class="metric-value">
-              01
-            </div>
-          </div>
 
-          <div class="metric">
-            <div class="metric-label">
-              Attempts
-            </div>
+    <section class="metrics">
 
-            <div class="metric-value">
-              2
-            </div>
-          </div>
+      <div class="metric">
+        <small>Attempts</small>
+        <strong>1</strong>
+      </div>
 
-          <div class="metric">
-            <div class="metric-label">
-              Final decision
-            </div>
+      <div class="metric">
+        <small>Final decision</small>
+        <strong>PASS</strong>
+      </div>
 
-            <div class="metric-value">
-              PASS
-            </div>
-          </div>
-
-        </div>
-
-        <div class="correction">
-
-          <h3>
-            What changed?
-          </h3>
-
-          <p>
-            The first decision did not follow the predefined alternate route.
-            The system then provided additional guidance and allowed another
-            attempt. The second attempt selected the marked emergency stairs.
-          </p>
-
-        </div>
-
-        <div class="ownership">
-
-          <h3>
-            Human review remains part of the process.
-          </h3>
-
-          <p>
-            A simulation result does not automatically certify readiness,
-            compliance or safety. A designated training or safety owner should
-            decide what corrective training happens next.
-          </p>
-
-        </div>
-
-        <div class="actions">
-
-          <button
-            class="button primary"
-            onclick="newRehearsal()"
-          >
-            Run another rehearsal
-          </button>
-
-          <button
-            class="button secondary"
-            onclick="exitSession()"
-          >
-            Exit
-          </button>
-
-        </div>
-
+      <div class="metric">
+        <small>Context</small>
+        <strong>Simulation</strong>
       </div>
 
     </section>
 
+
+    <section class="correction">
+
+      <strong>
+        What changed?
+      </strong>
+
+      <p>
+        The expected exit became unavailable. The successful decision was
+        recognizing the changed condition and using the available emergency
+        route instead of continuing with the original plan.
+      </p>
+
+    </section>
+
+
+    <div class="warning">
+
+      <strong>Important:</strong>
+      This result reflects performance in this simulation only.
+      It does not certify real-world readiness, compliance, safety or
+      risk reduction.
+
+    </div>
+
+
+    <div class="actions">
+
+      <a
+        href="https://sebassss2003-ux.github.io/responda-mx/simulation.html"
+        class="button">
+        Run another rehearsal →
+      </a>
+
+      <a
+        href="https://sebassss2003-ux.github.io/responda-mx/"
+        class="button secondary">
+        Return home
+      </a>
+
+    </div>
+
+
     <div class="disclaimer">
 
-      <strong>PERFORMANCE IN SIMULATION.</strong>
-      This result describes performance inside the prototype scenario only.
-      It does not certify real-world readiness, compliance, safety, survival
-      or risk reduction.
+      Prototype notice: adaptive feedback and performance results are
+      simulated. No result from this prototype should be interpreted as
+      certification of real-world readiness or safety.
 
     </div>
 
   </main>
-
-  <script>
-
-    function newRehearsal() {
-      window.location.href = "decision.html";
-    }
-
-    function exitSession() {
-      alert(
-        "Session closed. No readiness certification was generated."
-      );
-    }
-
-  </script>
 
 </body>
 </html>
