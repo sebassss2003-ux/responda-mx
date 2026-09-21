@@ -22,7 +22,7 @@
 
     .topbar {
       height: 72px;
-      background: #ffffff;
+      background: white;
       border-bottom: 1px solid #e3e7eb;
       display: flex;
       align-items: center;
@@ -36,7 +36,6 @@
       gap: 12px;
       font-weight: 800;
       font-size: 21px;
-      letter-spacing: -0.5px;
     }
 
     .brand-mark {
@@ -58,7 +57,7 @@
 
     .page {
       max-width: 1180px;
-      margin: 0 auto;
+      margin: auto;
       padding: 70px 24px;
     }
 
@@ -96,21 +95,18 @@
 
     .start-button {
       display: inline-block;
-      text-decoration: none;
-      border: none;
       background: #17212b;
       color: white;
+      text-decoration: none;
       padding: 16px 24px;
       border-radius: 10px;
       font-size: 15px;
       font-weight: 700;
       cursor: pointer;
-      transition: 0.2s ease;
     }
 
     .start-button:hover {
       background: #2a3945;
-      transform: translateY(-2px);
     }
 
     .simulation-card {
@@ -119,8 +115,6 @@
       padding: 28px;
       min-height: 390px;
       color: white;
-      position: relative;
-      overflow: hidden;
     }
 
     .simulation-label {
@@ -255,14 +249,6 @@
       .info-section {
         grid-template-columns: 1fr;
       }
-
-      .topbar {
-        padding: 0 5%;
-      }
-
-      .page {
-        padding-top: 45px;
-      }
     }
   </style>
 </head>
@@ -303,8 +289,9 @@
           decision when the situation changes.
         </p>
 
-        <!-- FIXED: this now opens the simulation -->
-        <a href="simulation.html" class="start-button">
+        <a
+          href="https://sebassss2003-ux.github.io/responda-mx/simulation.html"
+          class="start-button">
           Start rehearsal →
         </a>
 
@@ -317,17 +304,11 @@
         </div>
 
         <div class="building">
-
           <div class="corridor"></div>
-
           <div class="exit"></div>
-
           <div class="blocked"></div>
-
           <div class="stairs"></div>
-
           <div class="user-marker"></div>
-
         </div>
 
         <div class="simulation-footer">
@@ -342,64 +323,37 @@
     <section class="info-section">
 
       <div class="info-card">
-
-        <div class="info-number">
-          01
-        </div>
-
-        <h3>
-          Experience
-        </h3>
-
+        <div class="info-number">01</div>
+        <h3>Experience</h3>
         <p>
           Enter a simulated emergency scenario instead of simply reading
           instructions.
         </p>
-
       </div>
 
       <div class="info-card">
-
-        <div class="info-number">
-          02
-        </div>
-
-        <h3>
-          Decide
-        </h3>
-
+        <div class="info-number">02</div>
+        <h3>Decide</h3>
         <p>
           Make a decision when the expected route or situation changes.
         </p>
-
       </div>
 
       <div class="info-card">
-
-        <div class="info-number">
-          03
-        </div>
-
-        <h3>
-          Improve
-        </h3>
-
+        <div class="info-number">03</div>
+        <h3>Improve</h3>
         <p>
           See what happened, understand the correction and try again.
         </p>
-
       </div>
 
     </section>
 
     <div class="disclaimer">
-
       <strong>Prototype notice:</strong>
-
       This experience measures performance inside a simulation only.
       It does not certify readiness, compliance, safety or real-world
       risk reduction.
-
     </div>
 
   </main>
