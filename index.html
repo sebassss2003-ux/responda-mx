@@ -95,6 +95,8 @@
     }
 
     .start-button {
+      display: inline-block;
+      text-decoration: none;
       border: none;
       background: #17212b;
       color: white;
@@ -103,10 +105,12 @@
       font-size: 15px;
       font-weight: 700;
       cursor: pointer;
+      transition: 0.2s ease;
     }
 
     .start-button:hover {
       background: #2a3945;
+      transform: translateY(-2px);
     }
 
     .simulation-card {
@@ -266,6 +270,7 @@
 <body>
 
   <header class="topbar">
+
     <div class="brand">
       <div class="brand-mark">R</div>
       RespondaMX
@@ -274,6 +279,7 @@
     <div class="status">
       Emergency rehearsal · Prototype
     </div>
+
   </header>
 
   <main class="page">
@@ -281,7 +287,10 @@
     <section class="hero">
 
       <div>
-        <span class="eyebrow">Week 6 · Crystal Ball</span>
+
+        <span class="eyebrow">
+          Week 6 · Crystal Ball
+        </span>
 
         <h1>
           Practice the decision<br>
@@ -294,9 +303,11 @@
           decision when the situation changes.
         </p>
 
-        <button class="start-button">
+        <!-- FIXED: this now opens the simulation -->
+        <a href="simulation.html" class="start-button">
           Start rehearsal →
-        </button>
+        </a>
+
       </div>
 
       <div class="simulation-card">
@@ -331,37 +342,64 @@
     <section class="info-section">
 
       <div class="info-card">
-        <div class="info-number">01</div>
-        <h3>Experience</h3>
+
+        <div class="info-number">
+          01
+        </div>
+
+        <h3>
+          Experience
+        </h3>
+
         <p>
           Enter a simulated emergency scenario instead of simply reading
           instructions.
         </p>
+
       </div>
 
       <div class="info-card">
-        <div class="info-number">02</div>
-        <h3>Decide</h3>
+
+        <div class="info-number">
+          02
+        </div>
+
+        <h3>
+          Decide
+        </h3>
+
         <p>
           Make a decision when the expected route or situation changes.
         </p>
+
       </div>
 
       <div class="info-card">
-        <div class="info-number">03</div>
-        <h3>Improve</h3>
+
+        <div class="info-number">
+          03
+        </div>
+
+        <h3>
+          Improve
+        </h3>
+
         <p>
           See what happened, understand the correction and try again.
         </p>
+
       </div>
 
     </section>
 
     <div class="disclaimer">
+
       <strong>Prototype notice:</strong>
+
       This experience measures performance inside a simulation only.
       It does not certify readiness, compliance, safety or real-world
       risk reduction.
+
     </div>
 
   </main>
