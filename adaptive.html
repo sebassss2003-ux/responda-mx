@@ -3,266 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>RespondaMX — Adaptive Rehearsal</title>
+  <title>RespondaMX — Adaptive Review</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
       background: #f4f6f8;
       color: #17212b;
+      min-height: 100vh;
     }
 
     .topbar {
-      height: 70px;
-      background: #17212b;
-      color: white;
+      height: 72px;
+      background: white;
+      border-bottom: 1px solid #e3e7eb;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 6%;
+      padding: 0 7%;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 20px;
-    }
-
-    .brand-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      background: #c65d2e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .status {
-      color: #aeb9c1;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+    .brand { font-size: 21px; font-weight: 800; }
+    .status { font-size: 13px; color: #687580; }
 
     .page {
-      max-width: 1100px;
+      max-width: 900px;
       margin: auto;
-      padding: 50px 24px;
-    }
-
-    .header {
-      margin-bottom: 30px;
+      padding: 65px 24px;
     }
 
     .eyebrow {
       color: #c65d2e;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     h1 {
-      font-size: 42px;
-      letter-spacing: -1.5px;
-      margin-bottom: 12px;
+      font-size: 46px;
+      margin-bottom: 18px;
     }
 
     .intro {
-      max-width: 700px;
       color: #687580;
+      font-size: 17px;
       line-height: 1.6;
+      margin-bottom: 30px;
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #e0e5e9;
-      border-radius: 16px;
-      padding: 24px;
-    }
-
-    .card-title {
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-    }
-
-    .map {
-      height: 260px;
-      background: #e9eef1;
-      border-radius: 12px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid #d9e0e4;
-    }
-
-    .road {
-      position: absolute;
-      background: #ffffff;
-    }
-
-    .road.one {
-      width: 100%;
-      height: 28px;
-      top: 45%;
-    }
-
-    .road.two {
-      width: 28px;
-      height: 100%;
-      left: 55%;
-    }
-
-    .campus {
-      position: absolute;
-      left: 20%;
-      top: 28%;
-      width: 125px;
-      height: 100px;
-      background: #17212b;
-      border-radius: 8px;
-    }
-
-    .campus-label {
-      position: absolute;
-      left: 22%;
-      top: 67%;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .location-pin {
-      position: absolute;
-      left: 60%;
-      top: 38%;
-      width: 20px;
-      height: 20px;
-      background: #c65d2e;
-      border-radius: 50%;
-      box-shadow: 0 0 0 7px rgba(198, 93, 46, 0.18);
-    }
-
-    .location-info {
-      margin-top: 17px;
-    }
-
-    .location-info strong {
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .location-info span {
-      color: #687580;
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .adaptive-box {
+    .panel {
       background: #17212b;
       color: white;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
+      border-radius: 18px;
+      padding: 28px;
+      margin-bottom: 18px;
     }
 
-    .adaptive-label {
-      color: #d8784d;
-      font-size: 10px;
+    .panel-label {
+      color: #aeb9c1;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
-      font-weight: 800;
-      margin-bottom: 10px;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
     }
 
-    .adaptive-box p {
-      color: #c4cdd3;
-      line-height: 1.55;
+    .panel h2 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .panel p {
+      color: #d2d9de;
+      line-height: 1.6;
       font-size: 14px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 20px;
     }
 
     .metric {
-      display: flex;
-      justify-content: space-between;
-      padding: 14px 0;
-      border-bottom: 1px solid #e5e9ec;
-      font-size: 14px;
+      background: white;
+      border: 1px solid #e3e7eb;
+      border-radius: 14px;
+      padding: 20px;
     }
 
-    .metric:last-child {
-      border-bottom: none;
-    }
-
-    .metric span {
+    .metric small {
       color: #687580;
+      display: block;
+      margin-bottom: 8px;
     }
 
-    .retry-area {
+    .metric strong {
+      font-size: 24px;
+    }
+
+    .button {
+      display: inline-block;
       margin-top: 25px;
-    }
-
-    .retry-button {
-      border: none;
-      background: #c65d2e;
+      background: #17212b;
       color: white;
-      padding: 14px 20px;
-      border-radius: 9px;
+      text-decoration: none;
+      padding: 15px 22px;
+      border-radius: 10px;
       font-weight: 700;
-      cursor: pointer;
-    }
-
-    .retry-button:hover {
-      background: #a94d26;
-    }
-
-    .result {
-      margin-top: 18px;
-      padding: 15px;
-      background: #f5f7f8;
-      border-radius: 9px;
-      font-size: 13px;
-      color: #56636d;
-      line-height: 1.5;
     }
 
     .disclaimer {
-      margin-top: 25px;
-      padding: 15px;
-      background: #fff7f3;
-      border: 1px solid #efd5c6;
-      border-radius: 9px;
-      color: #744b39;
+      margin-top: 35px;
+      color: #7b858c;
       font-size: 11px;
       line-height: 1.5;
+      text-align: center;
     }
 
-    @media (max-width: 800px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
+    @media (max-width: 650px) {
+      .metric-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 38px; }
+      .status { display: none; }
     }
   </style>
 </head>
@@ -270,171 +136,67 @@
 <body>
 
   <header class="topbar">
-
-    <div class="brand">
-      <div class="brand-mark">R</div>
-      RespondaMX
-    </div>
-
-    <div class="status">
-      Adaptive rehearsal · Prototype
-    </div>
-
+    <div class="brand">RespondaMX</div>
+    <div class="status">Adaptive review · Scenario 01</div>
   </header>
 
   <main class="page">
 
-    <section class="header">
+    <div class="eyebrow">Step 3 · Adaptive logic</div>
 
-      <div class="eyebrow">
-        Scenario intelligence
-      </div>
+    <h1>Decision reviewed.</h1>
 
-      <h1>
-        The rehearsal adapts to your decision.
-      </h1>
+    <p class="intro">
+      The system uses the result of the rehearsal to provide the next
+      correction. This is simulated adaptive logic for the prototype.
+    </p>
 
-      <p class="intro">
-        The prototype uses the previous decision to change the amount of
-        guidance shown during the next attempt. The purpose is not to give
-        a higher score, but to create a correction loop.
+    <section class="panel">
+
+      <div class="panel-label">Simulated AI output</div>
+
+      <h2>Route change recognized.</h2>
+
+      <p>
+        Your decision switched from the unavailable primary route to the
+        available emergency route. The next rehearsal can increase the
+        decision challenge.
       </p>
 
     </section>
 
-    <section class="grid">
+    <div class="metric-grid">
 
-      <div class="card">
-
-        <div class="card-title">
-          Simulated geodata
-        </div>
-
-        <div class="map">
-
-          <div class="road one"></div>
-          <div class="road two"></div>
-
-          <div class="campus"></div>
-
-          <div class="location-pin"></div>
-
-          <div class="campus-label">
-            Campus A
-          </div>
-
-        </div>
-
-        <div class="location-info">
-
-          <strong>Mexico City · Fictional campus</strong>
-
-          <span>
-            Building: Campus A<br>
-            Floor: 2<br>
-            Scenario zone: North corridor
-          </span>
-
-        </div>
-
+      <div class="metric">
+        <small>Attempts</small>
+        <strong>1</strong>
       </div>
 
-      <div class="card">
-
-        <div class="card-title">
-          Adaptive logic
-        </div>
-
-        <div class="adaptive-box">
-
-          <div class="adaptive-label">
-            Simulated ML / adaptive logic
-          </div>
-
-          <p>
-            After an incorrect decision, the next attempt provides additional
-            visual guidance toward the predefined alternate route.
-          </p>
-
-        </div>
-
-        <div class="metric">
-          <span>Previous attempts</span>
-          <strong id="attempts">1</strong>
-        </div>
-
-        <div class="metric">
-          <span>Previous result</span>
-          <strong id="previousResult">FAIL</strong>
-        </div>
-
-        <div class="metric">
-          <span>Guidance level</span>
-          <strong id="guidance">Increased</strong>
-        </div>
-
-        <div class="retry-area">
-
-          <button
-            class="retry-button"
-            onclick="adaptiveRetry()"
-          >
-            Continue adaptive retry →
-          </button>
-
-          <div id="result" class="result">
-            The next rehearsal will highlight the alternate route and simplify
-            the decision wording.
-          </div>
-
-        </div>
-
+      <div class="metric">
+        <small>Decision</small>
+        <strong>PASS</strong>
       </div>
 
-    </section>
-
-    <div class="disclaimer">
-
-      <strong>PERFORMANCE IN SIMULATION.</strong>
-      Adaptive logic is simulated for this prototype. Results describe
-      behavior inside the scenario only and do not certify real-world
-      readiness, compliance, safety or risk reduction.
+      <div class="metric">
+        <small>Guidance</small>
+        <strong>Next</strong>
+      </div>
 
     </div>
 
+    <a
+      href="https://sebassss2003-ux.github.io/responda-mx/results.html"
+      class="button">
+      View session results →
+    </a>
+
+    <div class="disclaimer">
+      Prototype notice: adaptive output is simulated and represents
+      performance inside this simulation only. It does not certify
+      readiness, compliance, safety or real-world risk reduction.
+    </div>
+
   </main>
-
-  <script>
-
-    let retryCount = 0;
-
-    function adaptiveRetry() {
-
-      retryCount++;
-
-      document.getElementById("attempts").textContent = retryCount + 1;
-
-      if (retryCount === 1) {
-
-        document.getElementById("guidance").textContent = "High";
-
-        document.getElementById("result").textContent =
-          "Adaptive response: the alternate emergency route is now highlighted to support the correction.";
-
-      } else {
-
-        document.getElementById("guidance").textContent = "Reduced";
-
-        document.getElementById("previousResult").textContent = "RETRY";
-
-        document.getElementById("result").textContent =
-          "Adaptive response: guidance is reduced because the previous correction was completed.";
-
-      }
-
-    }
-
-  </script>
 
 </body>
 </html>
