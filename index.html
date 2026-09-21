@@ -22,7 +22,7 @@
 
     .topbar {
       height: 72px;
-      background: white;
+      background: #ffffff;
       border-bottom: 1px solid #e3e7eb;
       display: flex;
       align-items: center;
@@ -36,6 +36,7 @@
       gap: 12px;
       font-weight: 800;
       font-size: 21px;
+      letter-spacing: -0.5px;
     }
 
     .brand-mark {
@@ -57,7 +58,7 @@
 
     .page {
       max-width: 1180px;
-      margin: auto;
+      margin: 0 auto;
       padding: 70px 24px;
     }
 
@@ -97,16 +98,18 @@
       display: inline-block;
       background: #17212b;
       color: white;
-      text-decoration: none;
       padding: 16px 24px;
       border-radius: 10px;
       font-size: 15px;
       font-weight: 700;
+      text-decoration: none;
       cursor: pointer;
+      transition: all 0.2s ease;
     }
 
     .start-button:hover {
       background: #2a3945;
+      transform: translateY(-2px);
     }
 
     .simulation-card {
@@ -115,6 +118,8 @@
       padding: 28px;
       min-height: 390px;
       color: white;
+      position: relative;
+      overflow: hidden;
     }
 
     .simulation-label {
@@ -209,6 +214,11 @@
       border: 1px solid #e3e7eb;
       border-radius: 16px;
       padding: 25px;
+      transition: transform 0.2s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
     }
 
     .info-number {
@@ -240,13 +250,83 @@
       line-height: 1.5;
     }
 
+    .flow-section {
+      margin-top: 70px;
+      background: #ffffff;
+      border: 1px solid #e3e7eb;
+      border-radius: 20px;
+      padding: 30px;
+    }
+
+    .flow-title {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #687580;
+      margin-bottom: 22px;
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .flow-step {
+      padding: 18px;
+      border-radius: 12px;
+      background: #f4f6f8;
+      border: 1px solid #e3e7eb;
+    }
+
+    .flow-step strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .flow-step span {
+      font-size: 12px;
+      color: #687580;
+      line-height: 1.4;
+    }
+
     @media (max-width: 850px) {
+
       .hero {
         grid-template-columns: 1fr;
         gap: 45px;
       }
 
       .info-section {
+        grid-template-columns: 1fr;
+      }
+
+      .flow {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .topbar {
+        padding: 0 5%;
+      }
+
+      .page {
+        padding-top: 45px;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .status {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .flow {
         grid-template-columns: 1fr;
       }
     }
@@ -267,6 +347,7 @@
     </div>
 
   </header>
+
 
   <main class="page">
 
@@ -289,6 +370,7 @@
           decision when the situation changes.
         </p>
 
+        <!-- MAIN BUTTON -->
         <a
           href="https://sebassss2003-ux.github.io/responda-mx/simulation.html"
           class="start-button">
@@ -297,6 +379,7 @@
 
       </div>
 
+
       <div class="simulation-card">
 
         <div class="simulation-label">
@@ -304,56 +387,141 @@
         </div>
 
         <div class="building">
+
           <div class="corridor"></div>
+
           <div class="exit"></div>
+
           <div class="blocked"></div>
+
           <div class="stairs"></div>
+
           <div class="user-marker"></div>
+
         </div>
 
         <div class="simulation-footer">
-          <span>Campus A · Floor 2</span>
-          <span>North corridor</span>
+
+          <span>
+            Campus A · Floor 2
+          </span>
+
+          <span>
+            North corridor
+          </span>
+
         </div>
 
       </div>
 
     </section>
+
 
     <section class="info-section">
 
       <div class="info-card">
-        <div class="info-number">01</div>
-        <h3>Experience</h3>
+
+        <div class="info-number">
+          01
+        </div>
+
+        <h3>
+          Experience
+        </h3>
+
         <p>
           Enter a simulated emergency scenario instead of simply reading
           instructions.
         </p>
+
       </div>
 
+
       <div class="info-card">
-        <div class="info-number">02</div>
-        <h3>Decide</h3>
+
+        <div class="info-number">
+          02
+        </div>
+
+        <h3>
+          Decide
+        </h3>
+
         <p>
           Make a decision when the expected route or situation changes.
         </p>
+
       </div>
 
+
       <div class="info-card">
-        <div class="info-number">03</div>
-        <h3>Improve</h3>
+
+        <div class="info-number">
+          03
+        </div>
+
+        <h3>
+          Improve
+        </h3>
+
         <p>
           See what happened, understand the correction and try again.
         </p>
+
       </div>
 
     </section>
 
+
+    <section class="flow-section">
+
+      <div class="flow-title">
+        Rehearsal loop
+      </div>
+
+      <div class="flow">
+
+        <div class="flow-step">
+          <strong>01 · Experience</strong>
+          <span>
+            Enter the emergency scenario.
+          </span>
+        </div>
+
+        <div class="flow-step">
+          <strong>02 · Decide</strong>
+          <span>
+            Choose what to do when conditions change.
+          </span>
+        </div>
+
+        <div class="flow-step">
+          <strong>03 · Correct</strong>
+          <span>
+            Receive bounded feedback on the decision.
+          </span>
+        </div>
+
+        <div class="flow-step">
+          <strong>04 · Retry</strong>
+          <span>
+            Practice the decision again.
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+
     <div class="disclaimer">
+
       <strong>Prototype notice:</strong>
+
       This experience measures performance inside a simulation only.
       It does not certify readiness, compliance, safety or real-world
       risk reduction.
+
     </div>
 
   </main>
