@@ -6,7 +6,11 @@
   <title>RespondaMX — Adaptive Review</title>
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -25,8 +29,15 @@
       padding: 0 7%;
     }
 
-    .brand { font-size: 21px; font-weight: 800; }
-    .status { font-size: 13px; color: #687580; }
+    .brand {
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .status {
+      font-size: 13px;
+      color: #687580;
+    }
 
     .page {
       max-width: 900px;
@@ -60,7 +71,7 @@
       color: white;
       border-radius: 18px;
       padding: 28px;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     .panel-label {
@@ -86,7 +97,6 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin-top: 20px;
     }
 
     .metric {
@@ -126,9 +136,17 @@
     }
 
     @media (max-width: 650px) {
-      .metric-grid { grid-template-columns: 1fr; }
-      h1 { font-size: 38px; }
-      .status { display: none; }
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .status {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -136,15 +154,26 @@
 <body>
 
   <header class="topbar">
-    <div class="brand">RespondaMX</div>
-    <div class="status">Adaptive review · Scenario 01</div>
+
+    <div class="brand">
+      RespondaMX
+    </div>
+
+    <div class="status">
+      Adaptive review · Scenario 01
+    </div>
+
   </header>
 
   <main class="page">
 
-    <div class="eyebrow">Step 3 · Adaptive logic</div>
+    <div class="eyebrow">
+      Step 3 · Adaptive logic
+    </div>
 
-    <h1>Decision reviewed.</h1>
+    <h1>
+      Decision reviewed.
+    </h1>
 
     <p class="intro">
       The system uses the result of the rehearsal to provide the next
@@ -153,9 +182,13 @@
 
     <section class="panel">
 
-      <div class="panel-label">Simulated AI output</div>
+      <div class="panel-label">
+        Simulated AI output
+      </div>
 
-      <h2>Route change recognized.</h2>
+      <h2>
+        Route change recognized.
+      </h2>
 
       <p>
         Your decision switched from the unavailable primary route to the
@@ -184,6 +217,7 @@
 
     </div>
 
+    <!-- THIS IS THE BUTTON -->
     <a
       href="https://sebassss2003-ux.github.io/responda-mx/results.html"
       class="button">
@@ -191,9 +225,13 @@
     </a>
 
     <div class="disclaimer">
-      Prototype notice: adaptive output is simulated and represents
-      performance inside this simulation only. It does not certify
-      readiness, compliance, safety or real-world risk reduction.
+
+      <strong>Prototype notice:</strong>
+
+      Adaptive output is simulated and represents performance inside this
+      simulation only. It does not certify readiness, compliance, safety
+      or real-world risk reduction.
+
     </div>
 
   </main>
