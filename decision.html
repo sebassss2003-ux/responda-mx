@@ -1,328 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RespondaMX — Decision</title>
 
-  <title>RespondaMX — Decision</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f4f6f8;
+color:#17212b;
+min-height:100vh;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
-      color: #17212b;
-      min-height: 100vh;
-    }
+.topbar{
+height:72px;
+background:white;
+border-bottom:1px solid #e3e7eb;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 7%;
+}
 
-    .topbar {
-      height: 72px;
-      background: white;
-      border-bottom: 1px solid #e3e7eb;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 7%;
-    }
+.brand{font-size:21px;font-weight:800}
+.status{font-size:13px;color:#687580}
 
-    .brand {
-      font-size: 21px;
-      font-weight: 800;
-    }
+.page{
+max-width:900px;
+margin:auto;
+padding:65px 24px;
+}
 
-    .status {
-      color: #687580;
-      font-size: 13px;
-    }
+.eyebrow{
+color:#c65d2e;
+font-size:12px;
+font-weight:800;
+letter-spacing:1.5px;
+text-transform:uppercase;
+margin-bottom:15px;
+}
 
-    .page {
-      max-width: 900px;
-      margin: auto;
-      padding: 65px 24px;
-    }
+h1{
+font-size:46px;
+margin-bottom:18px;
+}
 
-    .eyebrow {
-      color: #c65d2e;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-    }
+.intro{
+color:#687580;
+font-size:17px;
+line-height:1.6;
+margin-bottom:30px;
+}
 
-    h1 {
-      font-size: 46px;
-      margin-bottom: 18px;
-      letter-spacing: -1.5px;
-    }
+.scenario{
+background:#17212b;
+color:white;
+padding:25px;
+border-radius:18px;
+margin-bottom:20px;
+}
 
-    .intro {
-      color: #687580;
-      font-size: 17px;
-      line-height: 1.6;
-      margin-bottom: 35px;
-    }
+.scenario-title{
+color:#aeb9c1;
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:1px;
+margin-bottom:12px;
+}
 
-    .scenario {
-      background: #17212b;
-      color: white;
-      padding: 25px;
-      border-radius: 18px;
-      margin-bottom: 25px;
-    }
+.scenario p{
+line-height:1.6;
+font-size:14px;
+}
 
-    .scenario-title {
-      font-size: 13px;
-      color: #aeb9c1;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-    }
+.choices{
+display:grid;
+gap:14px;
+}
 
-    .scenario p {
-      line-height: 1.6;
-      font-size: 15px;
-    }
+.choice{
+display:block;
+background:white;
+border:1px solid #dfe4e8;
+border-radius:14px;
+padding:22px;
+text-decoration:none;
+color:#17212b;
+}
 
-    .choices {
-      display: grid;
-      gap: 14px;
-    }
+.choice:hover{
+border-color:#17212b;
+}
 
-    .choice {
-      display: block;
-      background: white;
-      border: 1px solid #dfe4e8;
-      border-radius: 14px;
-      padding: 22px;
-      text-decoration: none;
-      color: #17212b;
-      transition: 0.2s ease;
-    }
+.choice strong{
+display:block;
+font-size:16px;
+margin-bottom:7px;
+}
 
-    .choice:hover {
-      border-color: #17212b;
-      transform: translateY(-2px);
-    }
+.choice span{
+color:#687580;
+font-size:13px;
+line-height:1.5;
+}
 
-    .choice strong {
-      display: block;
-      font-size: 16px;
-      margin-bottom: 7px;
-    }
+.feedback{
+margin-top:25px;
+padding:22px;
+background:#fff7f3;
+border:1px solid #f0d6c8;
+border-radius:14px;
+}
 
-    .choice span {
-      color: #687580;
-      font-size: 13px;
-      line-height: 1.5;
-    }
+.feedback strong{
+display:block;
+margin-bottom:8px;
+color:#7b4934;
+}
 
-    .correct {
-      border-left: 5px solid #4f7658;
-    }
+.feedback p{
+color:#687580;
+line-height:1.55;
+font-size:14px;
+}
 
-    .incorrect {
-      border-left: 5px solid #c65d2e;
-    }
+.continue{
+display:inline-block;
+margin-top:20px;
+padding:15px 22px;
+background:#17212b;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:700;
+}
 
-    .feedback {
-      margin-top: 30px;
-      padding: 22px;
-      background: #fff7f3;
-      border: 1px solid #f0d6c8;
-      border-radius: 14px;
-    }
+.attempts{
+margin-top:25px;
+font-size:13px;
+color:#687580;
+}
 
-    .feedback strong {
-      display: block;
-      margin-bottom: 8px;
-      color: #7b4934;
-    }
-
-    .feedback p {
-      color: #687580;
-      line-height: 1.55;
-      font-size: 14px;
-    }
-
-    .continue {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 15px 22px;
-      background: #17212b;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 700;
-    }
-
-    .attempts {
-      margin-top: 30px;
-      font-size: 13px;
-      color: #687580;
-    }
-
-    .disclaimer {
-      margin-top: 40px;
-      color: #7b858c;
-      font-size: 11px;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 38px;
-      }
-
-      .topbar {
-        padding: 0 5%;
-      }
-
-      .status {
-        display: none;
-      }
-    }
-  </style>
+.disclaimer{
+margin-top:35px;
+color:#7b858c;
+font-size:11px;
+line-height:1.5;
+text-align:center;
+}
+</style>
 </head>
 
 <body>
 
-  <header class="topbar">
+<header class="topbar">
+<div class="brand">RespondaMX</div>
+<div class="status">Decision rehearsal · Scenario 01</div>
+</header>
 
-    <div class="brand">
-      RespondaMX
-    </div>
+<main class="page">
 
-    <div class="status">
-      Decision rehearsal · Scenario 01
-    </div>
+<div class="eyebrow">Step 2 · Decide</div>
 
-  </header>
+<h1>What do you do next?</h1>
 
+<p class="intro">
+The expected exit is unavailable. Choose the action you would take
+before seeing the correction.
+</p>
 
-  <main class="page">
+<section class="scenario">
 
-    <div class="eyebrow">
-      Step 2 · Decide
-    </div>
+<div class="scenario-title">Situation</div>
 
-    <h1>
-      What do you do next?
-    </h1>
+<p>
+You are on Floor 2 of Campus A. The main exit is blocked.
+The emergency stairs are available on the north side of the corridor.
+</p>
 
-    <p class="intro">
-      The expected exit is unavailable. Choose the action you would take
-      before seeing the correction.
-    </p>
+</section>
 
+<section class="choices">
 
-    <section class="scenario">
+<a
+href="https://sebassss2003-ux.github.io/responda-mx/adaptive.html"
+class="choice">
 
-      <div class="scenario-title">
-        Situation
-      </div>
+<strong>Use the emergency stairs</strong>
 
-      <p>
-        You are on Floor 2 of Campus A. The main exit is blocked.
-        The emergency stairs are available on the north side of the corridor.
-      </p>
+<span>
+Move toward the available secondary route and continue through
+the emergency stairs.
+</span>
 
-    </section>
+</a>
 
+<a href="#feedback" class="choice">
 
-    <section class="choices">
+<strong>Continue toward the blocked main exit</strong>
 
-      <a
-        href="https://sebassss2003-ux.github.io/responda-mx/adaptive.html"
-        class="choice correct">
+<span>
+Keep following the original route even though the exit is unavailable.
+</span>
 
-        <strong>
-          Use the emergency stairs
-        </strong>
+</a>
 
-        <span>
-          Move toward the available secondary route and continue the
-          evacuation through the emergency stairs.
-        </span>
+<a href="#feedback" class="choice">
 
-      </a>
+<strong>Wait in the corridor</strong>
 
+<span>
+Stay where you are without moving toward an available route.
+</span>
 
-      <a
-        href="#feedback"
-        class="choice incorrect">
+</a>
 
-        <strong>
-          Continue toward the blocked main exit
-        </strong>
+</section>
 
-        <span>
-          Keep following the original route even though the exit is no
-          longer available.
-        </span>
+<div class="feedback" id="feedback">
 
-      </a>
+<strong>Correction</strong>
 
+<p>
+The original route changed. The rehearsal rewards recognizing the
+change and switching to the available emergency route.
+</p>
 
-      <a
-        href="#feedback"
-        class="choice incorrect">
+<a
+href="https://sebassss2003-ux.github.io/responda-mx/adaptive.html"
+class="continue">
+Continue to adaptive review →
+</a>
 
-        <strong>
-          Wait in the corridor
-        </strong>
+</div>
 
-        <span>
-          Stay where you are and wait without moving toward an available
-          route.
-        </span>
+<div class="attempts">
+Attempt 1 · Performance recorded inside simulation
+</div>
 
-      </a>
+<div class="disclaimer">
+Prototype notice: performance represents simulation performance only.
+It does not certify readiness, compliance, safety or risk reduction.
+</div>
 
-    </section>
-
-
-    <div class="feedback" id="feedback">
-
-      <strong>
-        Correction
-      </strong>
-
-      <p>
-        The original route changed. The rehearsal rewards recognizing the
-        change and switching to the available emergency route instead of
-        continuing with the original plan.
-      </p>
-
-      <a
-        href="https://sebassss2003-ux.github.io/responda-mx/adaptive.html"
-        class="continue">
-        Continue to adaptive review →
-      </a>
-
-    </div>
-
-
-    <div class="attempts">
-      Attempt 1 · Performance recorded inside simulation
-    </div>
-
-
-    <div class="disclaimer">
-
-      Prototype notice: this result represents performance in simulation
-      only. It does not certify readiness, compliance, safety or real-world
-      risk reduction.
-
-    </div>
-
-  </main>
+</main>
 
 </body>
 </html>
