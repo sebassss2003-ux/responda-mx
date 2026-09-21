@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>RespondaMX — Emergency Rehearsal</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f6f8;
+      color: #17212b;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      height: 72px;
+      background: #ffffff;
+      border-bottom: 1px solid #e3e7eb;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 21px;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #17212b;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+    }
+
+    .status {
+      font-size: 13px;
+      color: #687580;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 70px 24px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #c65d2e;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero-text {
+      font-size: 19px;
+      line-height: 1.6;
+      color: #596773;
+      max-width: 620px;
+      margin-bottom: 30px;
+    }
+
+    .start-button {
+      border: none;
+      background: #17212b;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .start-button:hover {
+      background: #2a3945;
+    }
+
+    .simulation-card {
+      background: #17212b;
+      border-radius: 24px;
+      padding: 28px;
+      min-height: 390px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .simulation-label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #aeb9c1;
+      margin-bottom: 18px;
+    }
+
+    .building {
+      height: 250px;
+      border: 1px solid #42515d;
+      border-radius: 16px;
+      position: relative;
+      background: #202d38;
+      overflow: hidden;
+    }
+
+    .corridor {
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      top: 50%;
+      height: 50px;
+      transform: translateY(-50%);
+      background: #d8dde1;
+      border-radius: 6px;
+    }
+
+    .exit {
+      position: absolute;
+      right: 8%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 55px;
+      height: 80px;
+      background: #a9b1b6;
+      border-radius: 5px;
+    }
+
+    .blocked {
+      position: absolute;
+      right: 4%;
+      top: 30%;
+      width: 85px;
+      height: 8px;
+      background: #c65d2e;
+      transform: rotate(-25deg);
+      border-radius: 4px;
+    }
+
+    .stairs {
+      position: absolute;
+      left: 8%;
+      top: 28%;
+      width: 55px;
+      height: 95px;
+      border: 2px dashed #d8dde1;
+      border-radius: 8px;
+    }
+
+    .user-marker {
+      position: absolute;
+      left: 42%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #c65d2e;
+      box-shadow: 0 0 0 7px rgba(198, 93, 46, 0.2);
+    }
+
+    .simulation-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      font-size: 13px;
+      color: #aeb9c1;
+    }
+
+    .info-section {
+      margin-top: 90px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .info-card {
+      background: white;
+      border: 1px solid #e3e7eb;
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .info-number {
+      font-size: 12px;
+      color: #c65d2e;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .info-card h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .info-card p {
+      color: #687580;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .disclaimer {
+      margin-top: 45px;
+      padding: 16px 18px;
+      background: #fff7f3;
+      border: 1px solid #f0d6c8;
+      border-radius: 10px;
+      color: #7b4934;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .info-section {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        padding: 0 5%;
+      }
+
+      .page {
+        padding-top: 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">R</div>
+      RespondaMX
+    </div>
+
+    <div class="status">
+      Emergency rehearsal · Prototype
+    </div>
+  </header>
+
+  <main class="page">
+
+    <section class="hero">
+
+      <div>
+        <span class="eyebrow">Week 6 · Crystal Ball</span>
+
+        <h1>
+          Practice the decision<br>
+          before the emergency.
+        </h1>
+
+        <p class="hero-text">
+          RespondaMX is a rehearsal experience for institutional responders.
+          Instead of only repeating a planned drill, you practice making a
+          decision when the situation changes.
+        </p>
+
+        <button class="start-button">
+          Start rehearsal →
+        </button>
+      </div>
+
+      <div class="simulation-card">
+
+        <div class="simulation-label">
+          Simulation preview
+        </div>
+
+        <div class="building">
+
+          <div class="corridor"></div>
+
+          <div class="exit"></div>
+
+          <div class="blocked"></div>
+
+          <div class="stairs"></div>
+
+          <div class="user-marker"></div>
+
+        </div>
+
+        <div class="simulation-footer">
+          <span>Campus A · Floor 2</span>
+          <span>North corridor</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="info-section">
+
+      <div class="info-card">
+        <div class="info-number">01</div>
+        <h3>Experience</h3>
+        <p>
+          Enter a simulated emergency scenario instead of simply reading
+          instructions.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-number">02</div>
+        <h3>Decide</h3>
+        <p>
+          Make a decision when the expected route or situation changes.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-number">03</div>
+        <h3>Improve</h3>
+        <p>
+          See what happened, understand the correction and try again.
+        </p>
+      </div>
+
+    </section>
+
+    <div class="disclaimer">
+      <strong>Prototype notice:</strong>
+      This experience measures performance inside a simulation only.
+      It does not certify readiness, compliance, safety or real-world
+      risk reduction.
+    </div>
+
+  </main>
+
+</body>
+</html>
